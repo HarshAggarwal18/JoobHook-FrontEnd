@@ -1,46 +1,103 @@
-# Getting Started with Create React App
+# JobPortal Frontend Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Overview
+The frontend of the JobPortal application is a modern, responsive Single Page Application (SPA) built with **React** and **TypeScript**. It delivers a premium user experience using the **Mantine** UI library, offering features like dark mode, rich text editing, and smooth animations.
 
-## Available Scripts
+This guide provides a comprehensive overview of the architecture, technology stack, and setup instructions for developers and recruiters.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠 Tech Stack
+The project leverages a robust set of modern web technologies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*   **Core**: [React 18](https://react.dev/) with **TypeScript** for type-safe component development.
+*   **UI Framework**: [Mantine v7](https://mantine.dev/) - A fully featured React component library.
+*   **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/) - For managing global application state (User Auth, etc.).
+*   **Styling**:
+    *   **TailwindCSS**: For utility-first custom styling.
+    *   **Mantine Modules**: For component-specific overrides.
+    *   **Tabler Icons**: For consistent SVG iconography.
+*   **Routing**: [React Router DOM v6](https://reactrouter.com/) for client-side navigation.
+*   **HTTP Client**: [Axios](https://axios-http.com/) for API communication with Interceptors for JWT handling.
+*   **Form & Validation**: Mantine Form.
+*   **Rich Text Editor**: [TipTap](https://tiptap.dev/) for creating formatted job descriptions/resumes.
+*   **Animations**: [AOS](https://michalsnik.github.io/aos/) (Animate On Scroll) for engaging page transitions.
+*   **Build Tool**: React Scripts (Create React App).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 📂 Project Structure
+The `src` directory is organized for scalability and maintainability:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── Components/    # Reusable UI components (Buttons, Headers, Cards)
+├── Pages/         # Full application views (Home, JobDetails, Login)
+├── Services/      # API integration logic (AuthService, JobService)
+├── Slices/        # Redux Toolkit slices (State logic)
+├── Interceptor/   # Axios interceptors for attaching JWT tokens
+├── DTO/           # Data Transfer Objects / TypeScript Interfaces
+├── Utils/         # Helper functions and constants
+└── App.tsx        # Main entry point with Theme & Router setup
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✨ Key Features
+*   **Adaptive Dark Mode**: Built-in support for dark/light themes via Mantine Provider.
+*   **Custom Theming**:
+    *   **Font**: *Poppins* (Google Fonts).
+    *   **Colors**: Custom `brightSun` (Gold/Yellow brand color) and `mineShaft` (Dark Greys) palettes.
+*   **Responsive Design**: Mobile-first approach ensuring compatibility across all devices.
+*   **Role-Based UI**: Dynamic interface changes based on user role (`APPLICANT` vs `EMPLOYER`).
+*   **Interactive Notifications**: Toast notifications for success/error feedback.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+### Prerequisites
+*   Node.js (v16 or higher)
+*   npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
+1.  Navigate to the frontend directory:
+    ```bash
+    cd frontend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running Locally
+Start the development server:
+```bash
+npm start
+```
+The app will launch at `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Building for Production
+Create an optimized build for deployment:
+```bash
+npm run build
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## 🔗 State Management & API
+*   **Redux Store**: Located in `Store.tsx`. It combines reducers from the `Slices/` directory to manage global states like `userProfile` and `authStatus`.
+*   **API Services**: All backend calls are centralized in `Services/`.
+    *   **Base URL**: Configured to point to the backend (Local: `http://localhost:8080` or Production).
+    *   **Interceptor**: Automatically attaches the `Authorization: Bearer <token>` header to requests if a user is logged in.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🧪 Testing
+The project includes setup for testing with **Jest** and **React Testing Library**.
+Run tests using:
+```bash
+npm test
+```
