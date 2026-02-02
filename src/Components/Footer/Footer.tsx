@@ -12,11 +12,11 @@ const Footer = () => {
                 <div className="text-xl font-semibold">JobHook</div>
             </div>
             <div className="text-sm text-mine-shaft-300">Job portal with user profiles, skill updates, certifications, work experience and admin job postings.</div>
-            <div className="flex gap-3 text-bright-sun-400 [&>a]:bg-mine-shaft-900 [&>a]:p-2 [&>a]:rounded-full [&>a]:cursor-pointer hover:[&>a]:bg-mine-shaft-700">
+            {/* <div className="flex gap-3 text-bright-sun-400 [&>a]:bg-mine-shaft-900 [&>a]:p-2 [&>a]:rounded-full [&>a]:cursor-pointer hover:[&>a]:bg-mine-shaft-700">
                 <a href="https://www.instagram.com/code.marshal_/"><IconBrandInstagram /></a>
                 <a href="https://t.me/code_Marshal"><IconBrandTelegram /></a>
                 <a href="https://www.youtube.com/@Code.Marshal"><IconBrandYoutube /></a>
-            </div>
+            </div> */}
         </div>
         {
             footerLinks.map((item, index) => <div data-aos-offset="0" data-aos="fade-up" key={index}>
